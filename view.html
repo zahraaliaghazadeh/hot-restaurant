@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hot Restaurant</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Hot Restaurant</h1>
+            <h3>Book your seat before they are all gone!</h3>
+            <hr>
+            <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New
+                    Reservation</button></a>
+            <a href="/api/characters"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span>
+                    Home</button></a>
+        </div>
+        <div class="row">
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><strong>Reservations</strong></h3>
+                    </div>
+                    <div id="reservation">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><strong>Waiting List</strong></h3>
+                    </div>
+                    <div id="waitinglist">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $("#search-btn").on("click", function () {
+
+
+        });
+
+        function makeTables() {
+            $.get("/api/currentcustomers", function (data) {
+                console.log(data);
+
+                if (data) {
+                    for (let i = 0; i < data.length; i++) {
+                        //  dynamically create a card from the data base
+                        let cardInterpolation = $(`
+        <div class="card">
+           <div class="card-body">
+               <h1 class="card-title">${data[i].name}</h1>
+               <h2 class="card-text">${data[i].phone}</h2>
+               <h2 class="card-text">${data[i].email}</h2>
+               <h2 class="card-text">${data[i].UniqueId}</h2>
+           </div>
+        </div>`
+                        );
+
+                        $("#reservation").append(cardInterpolation);
+
+                    }
+
+                    // we were receiving it as an array so data.name was not working.
+                    // $("#stats").show();
+                    // $("#name").text(data[0].name);
+                    // $("#phone").text(data[0].phone);
+                    // $("#email").text(data[0].email);
+                    // $("#unique-id").text(data[0].UniqueId);
+                } else {
+                    $("#name").text("");
+                    console.log("this ran")
+                    //   $("#stats").hide();
+                }
+            });
+        }
+
+        makeTables();
+
+        function makeWaitingList() {
+            $.get("/api/waitinglist", function (data) {
+                console.log(data);
+
+                if (data) {
+                    for (let i = 0; i < data.length; i++) {
+                        //  dynamically create a card from the data base
+                        let cardInterpolation = $(`
+<div class="card">
+<div class="card-body">
+<h1 class="card-title">${data[i].name}</h1>
+<h2 class="card-text">${data[i].phone}</h2>
+<h2 class="card-text">${data[i].email}</h2>
+<h2 class="card-text">${data[i].UniqueId}</h2>
+</div>
+</div>`
+                        );
+
+                        $("#waitinglist").append(cardInterpolation);
+
+                    }
+                } else {
+                    $("#name").text("");
+                    console.log("this ran")
+                    
+                }
+            });
+        }
+
+       makeWaitingList();
+
+
+
+    // $.get("/api/currentcustomers",function(data){
+    //     console.log(data)
+    // }
+
+
+
+    // )
+
+    </script>
+
+</body>
+
+</html>

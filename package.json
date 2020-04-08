@@ -1,0 +1,25 @@
+{
+  "name": "hot-restaurant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zahraaliaghazadeh/hot-restaurant.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zahraaliaghazadeh/hot-restaurant/issues"
+  },
+  "homepage": "https://github.com/zahraaliaghazadeh/hot-restaurant#readme"
+}
