@@ -1,4 +1,4 @@
-# [hot-restaurant](https://hotrestaurantyalda.herokuapp.com/)
+# [Hot Restaurant](https://hotrestaurantyalda.herokuapp.com/)
 
 
 ## An application to reserve tables at a hot restaurant
