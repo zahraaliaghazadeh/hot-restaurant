@@ -32,8 +32,7 @@ With hot restaurant you can easily make a reservation. This application is deplo
 To install : 
 * [Visual Code](https://code.visualstudio.com/docs/setup/setup-overview)
 * [NodeJS](https://nodejs.org/en/download/)
-* [MySql](https://dev.mysql.com/downloads/installer/)
-* [MySqlworkbench](https://dev.mysql.com/downloads/workbench/)
+
 
 
 In order to install, first download the files. Then you would open terminal and type ```npm install``` . This will install all the npm packages listed under the dependencies in the package.json.(express) Then you will open terminal and type the command ``` node index.js```. This will connect the server. Finally you will type ```localhost:3000``` in the browserwindow and use the application. If you would like to make changes to the application code files , you will have to restart the server after each change. To avoid that, you can install nodemon and use the command ```nodemon``` in the terminal so that it will automatically restart the server for you after each change.
